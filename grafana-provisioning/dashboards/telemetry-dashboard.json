@@ -1,0 +1,60 @@
+{
+  "id": null,
+  "uid": "telemetry_dashboard",
+  "title": "Telemetry Dashboard",
+  "tags": [],
+  "timezone": "browser",
+  "schemaVersion": 30,
+  "version": 1,
+  "panels": [
+    {
+      "type": "graph",
+      "title": "Telemetry Data",
+      "gridPos": {
+        "x": 0,
+        "y": 0,
+        "w": 24,
+        "h": 9
+      },
+      "id": 1,
+      "datasource": "Prometheus",
+      "targets": [
+        {
+          "expr": "cpu_usage",
+          "legendFormat": "{{host}} - cpu",
+          "refId": "A"
+        },
+        {
+          "expr": "memory_usage",
+          "legendFormat": "{{host}} - memory",
+          "refId": "B"
+        },
+        {
+          "expr": "disk_usage",
+          "legendFormat": "{{host}} - disk",
+          "refId": "C"
+        }
+      ],
+      "lines": true,
+      "linewidth": 2,
+      "fill": 1,
+      "tooltip": {
+        "shared": true,
+        "sort": 0,
+        "value_type": "individual"
+      },
+      "xaxis": {
+        "mode": "time",
+        "show": true
+      },
+      "yaxis": {
+        "show": true,
+        "format": "short"
+      }
+    }
+  ],
+  "time": {
+    "from": "now-15m",
+    "to": "now"
+  }
+}
