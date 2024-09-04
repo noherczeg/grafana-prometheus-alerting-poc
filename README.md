@@ -1,6 +1,6 @@
-# prometheus - grafana poc
+# grafana - prometheus alerting poc
 
-## Start
+## Compose
 
 ```bash
 docker compose up --build [--force-recreate]
@@ -10,11 +10,5 @@ docker compose down [--volumes]
 
 ## Access
 
-### Grafana:
-
-http://localhost:3000 (admin:secret)
-
-### Mailhog
-
-- SMTP: http://localhost:9025
-- Admin: http://localhost:9020
+- Grafana: http://localhost:3000 (admin:secret)
+- Mailhog: http://localhost:9020
