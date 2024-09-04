@@ -1,5 +1,3 @@
-version: '3.8'
-
 services:
   prometheus:
     image: prom/prometheus:latest
@@ -20,16 +18,26 @@ services:
     ports:
       - "3000:3000"
     environment:
-      - GF_SECURITY_ADMIN_PASSWORD=admin
+      - GF_SECURITY_ADMIN_PASSWORD=secret
     volumes:
       - grafana_data:/var/lib/grafana
       - ./grafana-provisioning:/etc/grafana/provisioning
+      - ./grafana-provisioning/alerting:/etc/grafana/provisioning/alerting
       - ./grafana-provisioning/dashboards:/etc/grafana/provisioning/dashboards
+    depends_on:
+      - mailhog
+      - prometheus
 
   telemetry_generator:
     build: ./telemetry_generator
     depends_on:
       - pushgateway
+
+  mailhog:
+    image: mailhog/mailhog:latest
+    ports:
+      - "9025:1025"
+      - "9020:8025"
 
 volumes:
   grafana_data:

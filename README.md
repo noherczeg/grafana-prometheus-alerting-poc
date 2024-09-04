@@ -3,9 +3,18 @@
 ## Start
 
 ```bash
-docker-compose up --build
+docker compose up --build [--force-recreate]
+
+docker compose down [--volumes]
 ```
 
 ## Access
 
-http://localhost:3000 (admin:admin)
+### Grafana:
+
+http://localhost:3000 (admin:secret)
+
+### Mailhog
+
+- SMTP: http://localhost:9025
+- Admin: http://localhost:9020

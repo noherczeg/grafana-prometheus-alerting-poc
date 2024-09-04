@@ -1,0 +1,11 @@
+apiVersion: 1
+contactPoints:
+    - orgId: 1
+      name: alert-email
+      receivers:
+        - uid: fdwtxsjls0sg1a
+          type: email
+          settings:
+            addresses: alert@example.com
+            singleEmail: false
+          disableResolveMessage: false
